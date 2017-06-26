@@ -58,8 +58,16 @@ router.get("/api/:id", (request, response)=>{
 });
 
 router.get("/api/recent/imagesearch/:id", (request, response)=>{
-    //get last ten recent searches from the db
-   
+    //get last ten recent searches from the db and send to user
+    var search = model.find().sort({day : -1}).limit(10);
+    search.exec(function(err, posts) {
+        if (err){
+            response.send({error: "internal server error"})
+        }
+        else if(posts){
+            response.send(posts);
+        }
+    });
 });
 
 module.exports = router;

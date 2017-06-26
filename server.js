@@ -13,7 +13,7 @@ app.use(router);
 //connect to the database
 const mlabUrl = process.env.MONGOLAB_URI; /*get mlab url(credentials) from environment variables and url-shortner is dbname*/
 mongoose.Promise = global.Promise;
-mongoose.connect(mlabUrl || "mongodb://localhost:27017/imageSearchAbstractionLayer"); /*connect to mongodb(on mlab, not locally) with mongoose
+mongoose.connect("mongodb://localhost:27017/imageSearchAbstractionLayer"); /*connect to mongodb(on mlab, not locally) with mongoose
 either on mlab cloud remote database or on locally installed mongodb*/
 
 const connection = mongoose.connection;
