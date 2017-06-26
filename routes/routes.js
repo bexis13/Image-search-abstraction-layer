@@ -8,6 +8,15 @@ router.get("/api/:id", (request, response)=>{
     const searchTerm = request.params.id;
     const query = request.query;
     const offset = query.offset;
+    //function to check if offset was inputed
+    function checkOffset(offset){
+        if(offset && offset >= 0){
+            return offset;
+        }
+        else{
+            return 0;
+        }
+    }
     //create model data from user input
     const data = new model({
         searchTerm : searchTerm,
@@ -25,17 +34,27 @@ router.get("/api/:id", (request, response)=>{
     //query the image search api and send the user the json response
     Bing.images(searchTerm, {
         top:10,
-        skip:10
+        skip: checkOffset(offset)
     },(err, res, body)=>{
         if (err){
             console.error(err);
         }
         else if(body){
-            response.send(body);
+            /*iterate through the body and store needed info in an array */
+            var outputArr = []
+            for(var i = 0; i<10; i++){
+                var output = {
+                    url : body.value[i].contentUrl,
+                    snippet : body.value[i].name,
+                    thumbnail : body.value[i].thumbnailUrl,
+                    context : body.value[i].hostPageUrl
+                } 
+                //put each result in array
+                outputArr.push(output)
+            }
+            response.send(outputArr);
         }
-        
     })
-   
 });
 
 router.get("/api/recent/imagesearch/:id", (request, response)=>{
