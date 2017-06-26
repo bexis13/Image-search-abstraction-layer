@@ -4,11 +4,11 @@ const Schema = mongoose.Schema;
 
 //create schema for inserting searches into db
 const searchTermSchema = new Schema({
-    searchTerm : String,
-    date : Date
+    searchTerm : {type : String},
+    date : {type : String}
 },
 {
-    timestamp: true
+    timestamps: true
 })
 //make our model for the schema
 const searchTermModel = mongoose.model('searchTerm', searchTermSchema);

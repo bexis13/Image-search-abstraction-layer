@@ -30,8 +30,9 @@ router.get("/api/:id", (request, response)=>{
         if (err){
             console.error(err);
         }
-        console.log(res);
-        console.log(body);
+        else if(body){
+            response.send(body);
+        }
         
     })
    
