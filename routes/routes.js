@@ -4,7 +4,10 @@ const express = require("express"),
 
 router.get("/api/:id", (request, response)=>{
     //get the search parameter from user
-    
+    const searchTerm = request.params.id;
+    const query = request.query;
+    console.log(searchTerm);
+    console.log(query);
     //save it in the the db
     
     //query the image search api and send the usrer the json response
