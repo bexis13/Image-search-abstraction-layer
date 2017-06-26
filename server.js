@@ -1,10 +1,11 @@
-const express = require("express");
-const app = express();
-const path = require("path");
-const mongoose = require("mongoose");
-const router = require("./routes/routes");
+const express = require("express"),
+      app = express(),
+      path = require("path"),
+      mongoose = require("mongoose"),
+      router = require("./routes/routes");
 
 const port = process.env.PORT || 8080;
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(router);
