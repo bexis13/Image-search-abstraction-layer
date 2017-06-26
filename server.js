@@ -8,6 +8,8 @@ const port = process.env.PORT || 8080;
 
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(router);
+
 //connect to the database
 const mlabUrl = process.env.MONGOLAB_URI; /*get mlab url(credentials) from environment variables and url-shortner is dbname*/
 console.log(mlabUrl);

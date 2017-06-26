@@ -1,7 +1,8 @@
 const express = require("express"),
-      router  = express.Router();
+      router  = express.Router(),
+      Bing    = require("node-bing-api");
 
-router.get("/new/:search", (request, response)=>{
+router.get("/api/:id", (request, response)=>{
     //get the search parameter from user
     
     //save it in the the db
@@ -11,7 +12,7 @@ router.get("/new/:search", (request, response)=>{
    
 });
 
-router.get("/recent", (request, response)=>{
+router.get("/api/recent/imagesearch/:id", (request, response)=>{
     //get last ten recent searches from the db
    
 });
