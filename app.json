@@ -1,6 +1,6 @@
 {
-    "name": "url shortener",
-    "description": "a simple url shortener microservice",
-    "repository": "https://github.com/bexis13/url-shortener",
-    "keywords": ["node","express", "static"]
+    "name": "image search abstraction layer",
+    "description": "a simple image search abstraction layer",
+    "repository": "https://github.com/bexis13/image-search-abstraction-layer",
+    "keywords": ["node","express", "static","mongoose","mongodb","heroku","mlab"]
 }
